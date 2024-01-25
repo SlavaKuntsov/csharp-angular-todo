@@ -1,5 +1,22 @@
 version: '3.9'
+
+networks:
+  todo:
+    driver: bridge
+
 services:
+  app:
+    container_name: UserStore.API
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - 80:80
+    networks:
+     - todo
+    depends_on:
+     - postgres
+
   postgres:
     container_name: postgres
     image: postgres:latest
@@ -11,6 +28,8 @@ services:
       - postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+     - todo
 
 volumes:
   postgres-data:

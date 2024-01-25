@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using UserStore.API.Contracts;
 using UserStore.Core.Abstractions;
 using UserStore.Core.Models;
@@ -25,11 +26,6 @@ namespace UserStore.API.Controllers
         public async Task<ActionResult<List<UsersResponse>>> GetUsers()
         {
             var users = await _userService.GetAllUsers();
-            foreach (var item in users)
-            {
-            Console.WriteLine("-------" + item.Token);
-
-            }
 
             var response = users.Select(u => new UsersResponse(u.Id, u.Еmail, u.Password, u.Token));
 
@@ -39,6 +35,11 @@ namespace UserStore.API.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<List<UsersRequest>>> CreateUsers([FromBody] UsersRequest request)
         {
+            if (_userService.FindExistingUser(request.email))
+            {
+                return BadRequest("User already exists");
+            }
+
             var (user, error) = UserStore.Core.Models.User.Create(
                 request.email,
                 request.password);
@@ -48,16 +49,18 @@ namespace UserStore.API.Controllers
                 return BadRequest(error);
             }
 
-            var userId = await _userService.CreateUser(user);
+            var userToken = await _userService.CreateUser(user);
 
-            return Ok(userId);
+            string jsonUserToken = JsonSerializer.Serialize(userToken);
+
+            return Ok(jsonUserToken);
         }
         [HttpPost("Login")]
-        public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequest request)
+        public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequestLogin request)
         {
             var (user, error) = UserStore.Core.Models.User.Create(
-                request.email,
-                request.password);
+                request.token
+                );
 
             if (!string.IsNullOrEmpty(error))
             {
@@ -77,7 +80,7 @@ namespace UserStore.API.Controllers
             Console.WriteLine("done done");
             Guid id = Guid.Parse(loginResult);
 
-            var findUser = _userService.Find(id);
+            var findUser = _userService.FindById(id);
 
             return Ok(findUser);
 
