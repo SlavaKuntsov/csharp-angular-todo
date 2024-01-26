@@ -37,11 +37,12 @@ namespace UserStore.API
 
             app.UseHttpsRedirection();
 
-            app.UseCors(options =>
+            app.UseCors(builder =>
             {
-                options.AllowAnyOrigin()
+                builder
                        .AllowAnyMethod()
-                       .AllowAnyHeader();
+                       .AllowAnyHeader()
+                       .WithOrigins("http://localhost:4200", "https://angular-todo-backend.onrender.com", "https://angular-todo-wine.vercel.app");
             });
 
             app.UseAuthorization();

@@ -25,6 +25,7 @@ namespace UserStore.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<UsersResponse>>> GetUsers()
         {
+
             var users = await _userService.GetAllUsers();
 
             var response = users.Select(u => new UsersResponse(u.Id, u.Еmail, u.Password, u.Token));
