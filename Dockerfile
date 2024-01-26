@@ -2,8 +2,7 @@
 #
 #FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 #WORKDIR /app
-#EXPOSE 80
-#EXPOSE 443
+
 #
 #FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 #WORKDIR /src
@@ -27,9 +26,12 @@
 
 # Сначала установим SDK для сборки проектов
 
-FROM docker.io/library/build:latest AS base
-FROM slavakunz/todo:tagname AS base
+#FROM docker.io/library/build:latest AS base
+#FROM slavakunz/todo:tagname AS base
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+
+EXPOSE 80
+EXPOSE 443
 
 WORKDIR /app
 

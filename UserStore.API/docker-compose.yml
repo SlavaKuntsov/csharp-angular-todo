@@ -8,10 +8,10 @@ services:
   app:
     container_name: UserStore.API
     build:
-      context: ../
+      context: ../Dockerfile
       dockerfile: Dockerfile
     ports:
-     - 80:80
+     - 8080:8080
     networks:
      - todo
     depends_on:
