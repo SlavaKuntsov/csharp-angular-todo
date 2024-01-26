@@ -1,0 +1,13 @@
+C:\my\projects\asp net applications\users\UserStore.Core\bin\Release\net7.0\UserStore.Core.deps.json
+C:\my\projects\asp net applications\users\UserStore.Core\bin\Release\net7.0\UserStore.Core.dll
+C:\my\projects\asp net applications\users\UserStore.Core\bin\Release\net7.0\UserStore.Core.pdb
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.csproj.AssemblyReference.cache
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.AssemblyInfoInputs.cache
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.AssemblyInfo.cs
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.csproj.CoreCompileInputs.cache
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.sourcelink.json
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.dll
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\refint\UserStore.Core.dll
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\UserStore.Core.pdb
+C:\my\projects\asp net applications\users\UserStore.Core\obj\Release\net7.0\ref\UserStore.Core.dll

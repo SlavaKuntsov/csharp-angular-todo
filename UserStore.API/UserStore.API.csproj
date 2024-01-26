@@ -10,19 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Store.Application\UserStore.Application.csproj" />
-    <ProjectReference Include="..\Store.Core\UserStore.Core.csproj" />
-    <ProjectReference Include="..\Store.DataAccess\UserStore.DataAccess.csproj" />
+    <ProjectReference Include="..\UserStore.Application\UserStore.Application.csproj" />
+    <ProjectReference Include="..\UserStore.Core\UserStore.Core.csproj" />
+    <ProjectReference Include="..\UserStore.DataAccess\UserStore.DataAccess.csproj" />
   </ItemGroup>
+
 
 </Project>
