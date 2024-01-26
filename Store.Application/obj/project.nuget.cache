@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "opWA+mQOTL88Yo8bmnrnSC6QClC53FUcLBa0fjLKl6VmxrdfyOKrWyQ4Pvsmr9EaiJ4IPPOiW3Mm7L7QHztIRw==",
+  "success": true,
+  "projectFilePath": "C:\\my\\projects\\asp net applications\\users\\Store.Application\\UserStore.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Slava\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.15\\microsoft.entityframeworkcore.7.0.15.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.15\\microsoft.entityframeworkcore.abstractions.7.0.15.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.15\\microsoft.entityframeworkcore.analyzers.7.0.15.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.11\\microsoft.entityframeworkcore.relational.7.0.11.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.2.0\\microsoft.identitymodel.abstractions.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.2.0\\microsoft.identitymodel.jsonwebtokens.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.logging\\7.2.0\\microsoft.identitymodel.logging.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.2.0\\microsoft.identitymodel.tokens.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.2.0\\system.identitymodel.tokens.jwt.7.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

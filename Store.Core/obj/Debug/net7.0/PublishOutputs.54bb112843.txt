@@ -1,0 +1,8 @@
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\UserStore.Core.dll
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\UserStore.Core.deps.json
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\UserStore.Core.pdb
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Abstractions.dll
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Logging.dll
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Tokens.dll
+C:\my\projects\asp net applications\users\Store.Core\bin\Debug\net7.0\publish\System.IdentityModel.Tokens.Jwt.dll

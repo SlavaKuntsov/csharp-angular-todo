@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZF0XB7aaeOFaElxaWexmvi5kEyC5eG+OsJUBUbUj/rF7amYhkdVfhYCUh0cdwkLIeJNBGhWblaaz9GTJQwzxYg==",
+  "success": true,
+  "projectFilePath": "C:\\my\\projects\\asp net applications\\users\\Store.Core\\UserStore.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.2.0\\microsoft.identitymodel.abstractions.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.2.0\\microsoft.identitymodel.jsonwebtokens.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.logging\\7.2.0\\microsoft.identitymodel.logging.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.2.0\\microsoft.identitymodel.tokens.7.2.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.2.0\\system.identitymodel.tokens.jwt.7.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
