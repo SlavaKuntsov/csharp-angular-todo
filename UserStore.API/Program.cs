@@ -40,9 +40,10 @@ namespace UserStore.API
             app.UseCors(builder =>
             {
                 builder
+                       .AllowAnyOrigin()
                        .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .WithOrigins("http://localhost:4200", "https://angular-todo-backend.onrender.com", "https://angular-todo-wine.vercel.app");
+                       .AllowAnyHeader();
+                       //.WithOrigins("http://localhost:4200", "https://angular-todo-backend.onrender.com", "https://angular-todo-wine.vercel.app")
             });
 
             app.UseAuthorization();

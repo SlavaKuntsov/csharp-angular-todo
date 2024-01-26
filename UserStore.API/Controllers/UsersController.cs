@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -13,6 +14,7 @@ namespace UserStore.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableCors()]
     public class UsersController : ControllerBase
     {
         private readonly IUsersService _userService;
