@@ -19,16 +19,6 @@ namespace UserStore.Core.Models
             this.Еmail = email;
             this.Password = password;
             this.Token = token;
-            //if(string.IsNullOrEmpty(Token))
-            //{
-            //    Console.WriteLine($"old - {Token}");
-            //    this.Token = GenerateJwtToken(password, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
-            //    Console.WriteLine($"new - {Token}");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("token был ранее");
-            //}
         }
         private User(string token)
         {
@@ -55,9 +45,7 @@ namespace UserStore.Core.Models
                 error = "Email or Password can not be empty";
             }
 
-
             User user = new(id, email, password, token);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
             return (user, error);
         }
@@ -72,7 +60,6 @@ namespace UserStore.Core.Models
             }
 
             User user = new(email, password);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
             return (user, error);
         }
@@ -85,13 +72,8 @@ namespace UserStore.Core.Models
             {
                 error = "Email or Password can not be empty";
             }
-            //if (!ValidateToken(token, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d"))
-            //{
-            //    error = "Invalid token";
-            //}
 
             User user = new(email, password, token);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
             return (user, error);
         }
@@ -100,30 +82,10 @@ namespace UserStore.Core.Models
         {
             var error = string.Empty;
 
-            //if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            //{
-            //    error = "Email or Password can not be empty";
-            //}
-            //if (!ValidateToken(token, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d"))
-            //{
-            //    error = "Invalid token";
-            //}
-
             User user = new(token);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
             return (user, error);
         }
-        //private static string? GetUserTokenFromDatabase(Guid userId)
-        //{
-        //    // Здесь вы должны получить токен пользователя из вашей базы данных или другого хранилища
-        //    // Верните токен, если он существует, или null, если токен не найден
-        //    // Пример:
-        //    return _context.Users.SingleOrDefault(u => u.Id == userId)?.Token;
-        //    //return null;
-        //}
-
-
         public static string GenerateToken(Guid id, string secretKey)
         {
             Console.WriteLine("id for token " + id);

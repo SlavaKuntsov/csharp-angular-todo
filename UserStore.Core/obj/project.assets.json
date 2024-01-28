@@ -210,11 +210,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\my\\projects\\asp net applications\\users\\UserStore.Core\\UserStore.Core.csproj",
+      "projectUniqueName": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Core\\UserStore.Core.csproj",
       "projectName": "UserStore.Core",
-      "projectPath": "C:\\my\\projects\\asp net applications\\users\\UserStore.Core\\UserStore.Core.csproj",
+      "projectPath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Core\\UserStore.Core.csproj",
       "packagesPath": "C:\\Users\\Slava\\.nuget\\packages\\",
-      "outputPath": "C:\\my\\projects\\asp net applications\\users\\UserStore.Core\\obj\\",
+      "outputPath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Slava\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -259,12 +259,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.15, 7.0.15]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.15, 7.0.15]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.15, 7.0.15]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

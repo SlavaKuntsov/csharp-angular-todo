@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UserStore.DataAccess.Configurations;
 using UserStore.DataAccess.Entities;
 
 namespace UserStore.DataAccess
@@ -11,6 +12,13 @@ namespace UserStore.DataAccess
         public UserStoreDbContext(DbContextOptions<UserStoreDbContext> options) : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserConfigurations());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
