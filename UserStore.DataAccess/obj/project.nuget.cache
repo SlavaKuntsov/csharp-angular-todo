@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ewzRXwAeC5q51Cne2mPf8piVqkui1qlHA5TwFTCkgt9NaZ7YxOQWN6O9OeAix0zDTZ1Y+KWbz6GRVA8ymB20fA==",
+  "dgSpecHash": "5JmOcb8yzOlDc0fWDYdNKe+LX4rB6gWvQdFvJOQ0DMPoGBvU1dWoDY90LgquTtrbfPr5nCE5103Na+u2zt5Iyg==",
   "success": true,
-  "projectFilePath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.DataAccess\\UserStore.DataAccess.csproj",
+  "projectFilePath": "C:\\my\\projects\\asp net applications\\users\\UserStore.DataAccess\\UserStore.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Slava\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -32,10 +32,7 @@
     "C:\\Users\\Slava\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.2.0\\system.identitymodel.tokens.jwt.7.2.0.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.15\\microsoft.netcore.app.ref.7.0.15.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.15\\microsoft.windowsdesktop.app.ref.7.0.15.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.15\\microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512"
+    "C:\\Users\\Slava\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

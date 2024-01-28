@@ -70,6 +70,8 @@ namespace UserStore.DataAccess.Repositories
 				return "User not found";
 			}
 
+
+
             var existingUser = _context.Users.SingleOrDefault(u => u.Id == Guid.Parse(existingUserId));
 
             if (!BCrypt.Net.BCrypt.Verify(user.Password, existingUser.Password))

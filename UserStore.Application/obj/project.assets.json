@@ -954,11 +954,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Application\\UserStore.Application.csproj",
+      "projectUniqueName": "C:\\my\\projects\\asp net applications\\users\\UserStore.Application\\UserStore.Application.csproj",
       "projectName": "UserStore.Application",
-      "projectPath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Application\\UserStore.Application.csproj",
+      "projectPath": "C:\\my\\projects\\asp net applications\\users\\UserStore.Application\\UserStore.Application.csproj",
       "packagesPath": "C:\\Users\\Slava\\.nuget\\packages\\",
-      "outputPath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Application\\obj\\",
+      "outputPath": "C:\\my\\projects\\asp net applications\\users\\UserStore.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Slava\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -975,11 +975,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Core\\UserStore.Core.csproj": {
-              "projectPath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.Core\\UserStore.Core.csproj"
+            "C:\\my\\projects\\asp net applications\\users\\UserStore.Core\\UserStore.Core.csproj": {
+              "projectPath": "C:\\my\\projects\\asp net applications\\users\\UserStore.Core\\UserStore.Core.csproj"
             },
-            "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.DataAccess\\UserStore.DataAccess.csproj": {
-              "projectPath": "C:\\my\\projects\\asp net applications\\angular-todo-backend\\UserStore.DataAccess\\UserStore.DataAccess.csproj"
+            "C:\\my\\projects\\asp net applications\\users\\UserStore.DataAccess\\UserStore.DataAccess.csproj": {
+              "projectPath": "C:\\my\\projects\\asp net applications\\users\\UserStore.DataAccess\\UserStore.DataAccess.csproj"
             }
           }
         }
@@ -1004,26 +1004,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.15, 7.0.15]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.15, 7.0.15]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.15, 7.0.15]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

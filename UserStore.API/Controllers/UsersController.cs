@@ -58,7 +58,6 @@ namespace UserStore.API.Controllers
 
             return Ok(jsonUserToken);
         }
-
         [HttpPost("Login")]
         public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequestLogin request)
         {
