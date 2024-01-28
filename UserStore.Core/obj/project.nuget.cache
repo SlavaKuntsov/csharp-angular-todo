@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "R697jTAZWbR7PSYZKtOREllYD1+l6/KaMXLSOmh/yi/gn+0m8dXmsV7Ld0vC50BQP+5DJg+9Yg4fAj9xJlvTFg==",
+  "dgSpecHash": "QhEqTSEQEiiP9DnW1wgiydK6T0GJzZE+aKfJij51x6jR9zszke84/ZGM0Ff0uwraVrT1Qje45Rv+8nvefRxdug==",
   "success": true,
-  "projectFilePath": "C:\\my\\projects\\asp net applications\\users\\UserStore.Core\\UserStore.Core.csproj",
+  "projectFilePath": "/Users/nikitapapko/pet/todo/angular-todo-backend/UserStore.Core/UserStore.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.2.0\\microsoft.identitymodel.abstractions.7.2.0.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.2.0\\microsoft.identitymodel.jsonwebtokens.7.2.0.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.logging\\7.2.0\\microsoft.identitymodel.logging.7.2.0.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.2.0\\microsoft.identitymodel.tokens.7.2.0.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.2.0\\system.identitymodel.tokens.jwt.7.2.0.nupkg.sha512"
+    "/Users/nikitapapko/.nuget/packages/microsoft.identitymodel.abstractions/7.2.0/microsoft.identitymodel.abstractions.7.2.0.nupkg.sha512",
+    "/Users/nikitapapko/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.2.0/microsoft.identitymodel.jsonwebtokens.7.2.0.nupkg.sha512",
+    "/Users/nikitapapko/.nuget/packages/microsoft.identitymodel.logging/7.2.0/microsoft.identitymodel.logging.7.2.0.nupkg.sha512",
+    "/Users/nikitapapko/.nuget/packages/microsoft.identitymodel.tokens/7.2.0/microsoft.identitymodel.tokens.7.2.0.nupkg.sha512",
+    "/Users/nikitapapko/.nuget/packages/system.identitymodel.tokens.jwt/7.2.0/system.identitymodel.tokens.jwt.7.2.0.nupkg.sha512"
   ],
   "logs": []
 }

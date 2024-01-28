@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UserStore.Core
-build_property.ProjectDir = C:\my\projects\asp net applications\users\UserStore.Core\
+build_property.ProjectDir = /Users/nikitapapko/pet/todo/angular-todo-backend/UserStore.Core/
