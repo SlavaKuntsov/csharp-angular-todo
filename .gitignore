@@ -3,6 +3,20 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# Папка bin и содержащиеся в ней файлы
+bin/
+obj/
+
+# Папка .vs и содержащиеся в ней файлы
+.vs/
+
+# Папка packages и содержащиеся в ней файлы
+packages/
+
+# Папка .dotnet и содержащиеся в ней файлы
+.dotnet/
+
+
 .vs
 
 # dotenv files
