@@ -3,9 +3,6 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
-# Папка bin и содержащиеся в ней файлы
-bin/
-obj/
 
 # Папка .vs и содержащиеся в ней файлы
 .vs/
@@ -16,8 +13,6 @@ packages/
 # Папка .dotnet и содержащиеся в ней файлы
 .dotnet/
 
-
-.vs
 
 # dotenv files
 .env
@@ -498,3 +493,21 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+*.cache
+*.dll
+*.exe
+*.pdb
+/build/
+*.suo
+*.user
+_ReSharper.*/
+*.sdf
+*.opensdf
+*.tlog
+*.log
+TestResult.xml
+*.VisualState.xml
+Version.cs
+Version.h
+Version.cpp
