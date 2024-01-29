@@ -43,16 +43,16 @@ namespace UserStore.API.Controllers
                 return BadRequest("User already exists");
             }
 
-            var (user, error) = UserStore.Core.Models.User.Create(
+            var user = UserStore.Core.Models.User.Create(
                 request.email,
                 request.password);
 
-            if(!string.IsNullOrEmpty(error))
+            if(user.IsFailure)
             {
-                return BadRequest(error);
+                return BadRequest(user.Error);
             }
 
-            var userToken = await _userService.CreateUser(user);
+            var userToken = await _userService.CreateUser(user.Value);
 
             string jsonUserToken = JsonSerializer.Serialize(userToken);
 
@@ -62,16 +62,16 @@ namespace UserStore.API.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequestLogin request)
         {
-            var (user, error) = UserStore.Core.Models.User.Create(
+            var user = Core.Models.User.Create(
                 request.token
                 );
 
-            if (!string.IsNullOrEmpty(error))
+            if (user.IsFailure)
             {
-                return BadRequest(error);
+                return BadRequest(user.Error);
             }
 
-            string loginResult = _userService.LoginUser(user); //repository
+            string loginResult = _userService.LoginUser(user.Value); //repository
             Console.WriteLine(loginResult);
 
             if(!loginResult.Contains("-"))

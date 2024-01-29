@@ -2,17 +2,21 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using CSharpFunctionalExtensions;
 using Microsoft.IdentityModel.Tokens;
 
 namespace UserStore.Core.Models
 {
     public class User
     {
+
         public Guid Id { get; }
         public string? Еmail { get; }
         public string? Password { get; }
         public string? Token { get; }
+        public List<Group> Groups { get; } = new List<Group>();
 
+        //private IReadOnlyCollection<TodoGroup> _userTodoGroups = new;
         private User(Guid id, string email, string password, string token)
         {
             this.Id = id;
@@ -35,56 +39,49 @@ namespace UserStore.Core.Models
             this.Password = password;
             this.Token = token;
         }
-        // get user
-        public static (User User, string Error) Create(Guid id, string email, string password, string token)
-        {
-            var error = string.Empty;
 
+        // get user
+        public static Result<User> Create(Guid id, string email, string password, string token)
+        {
             if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                error = "Email or Password can not be empty";
+                return Result.Failure<User>("Email or Password can not be empty");
             }
 
             User user = new(id, email, password, token);
 
-            return (user, error);
+            return Result.Success(user);
         }
         // create
-        public static (User User, string Error) Create(string email, string password)
+        public static Result<User> Create(string email, string password)
         {
-            var error = string.Empty;
-
             if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                error = "Email or Password can not be empty";
+                return Result.Failure<User>("Email or Password can not be empty");
             }
 
             User user = new(email, password);
 
-            return (user, error);
+            return Result.Success(user);
         }
         // login
-        public static (User User, string Error) Create(string email, string password, string token)
+        public static Result<User> Create(string email, string password, string token)
         {
-            var error = string.Empty;
-
-            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                error = "Email or Password can not be empty";
+                return Result.Failure<User>("Email or Password can not be empty");
             }
 
             User user = new(email, password, token);
 
-            return (user, error);
+            return Result.Success(user);
         }
         // login 2
-        public static (User User, string Error) Create(string token)
+        public static Result<User> Create(string token)
         {
-            var error = string.Empty;
-
             User user = new(token);
 
-            return (user, error);
+            return Result.Success(user)
         }
         public static string GenerateToken(Guid id, string secretKey)
         {
@@ -149,7 +146,8 @@ namespace UserStore.Core.Models
             {
                 return null;
             }
-
         }
+
+
     }
 }
