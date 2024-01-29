@@ -81,7 +81,7 @@ namespace UserStore.Core.Models
         {
             User user = new(token);
 
-            return Result.Success(user)
+            return Result.Success(user);
         }
         public static string GenerateToken(Guid id, string secretKey)
         {
