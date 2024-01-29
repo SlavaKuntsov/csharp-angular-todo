@@ -21,7 +21,8 @@ namespace UserStore.DataAccess.Configurations
             builder.Property(u => u.Password)
                 .IsRequired();
 
-            builder.Property(u => u.Token);
+            builder.Property(u => u.Token)
+                .IsRequired();
         }
     }
 }

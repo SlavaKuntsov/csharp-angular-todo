@@ -15,6 +15,9 @@ namespace UserStore.DataAccess.Configurations
                 .WithMany(g => g.Items)
                 .HasForeignKey(i => i.GroupId);
 
+            builder.Property(u => u.GroupId)
+                .IsRequired();
+
             builder.Property(i => i.Title)
                 .IsRequired();
 

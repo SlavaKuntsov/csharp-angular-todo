@@ -20,6 +20,9 @@ namespace UserStore.DataAccess.Configurations
                 .WithOne(i => i.Group)
                 .HasForeignKey(i => i.GroupId);
 
+            builder.Property(g => g.UserId)
+                .IsRequired();
+
             builder.Property(g => g.Title)
                 .IsRequired();
         }
