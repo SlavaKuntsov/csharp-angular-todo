@@ -11,33 +11,33 @@ namespace UserStore.Core.Models
     {
 
         public Guid Id { get; }
-        public string? Еmail { get; }
-        public string? Password { get; }
-        public string? Token { get; }
+        public string Email { get; }
+        public string Password { get; } 
+        public string Token { get; }
         public List<Group> Groups { get; } = new List<Group>();
 
         //private IReadOnlyCollection<TodoGroup> _userTodoGroups = new;
         private User(Guid id, string email, string password, string token)
         {
-            this.Id = id;
-            this.Еmail = email;
-            this.Password = password;
-            this.Token = token;
+            Id = id;
+            Email = email;
+            Password = password;
+            Token = token;
         }
         private User(string token)
         {
-            this.Token = token;
+            Token = token;
         }
         private User(string email, string password)
         {
-            this.Еmail = email;
-            this.Password = password;
+            Email = email;
+            Password = password;
         }
         private User(string email, string password, string token)
         {
-            this.Еmail = email;
-            this.Password = password;
-            this.Token = token;
+            Email = email;
+            Password = password;
+            Token = token;
         }
 
         // get user

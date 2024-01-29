@@ -17,9 +17,9 @@ namespace UserStore.API.Controllers
     [EnableCors()]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersService _userService;
+        private readonly IUserService _userService;
 
-        public UsersController(IUsersService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
@@ -32,7 +32,7 @@ namespace UserStore.API.Controllers
 
             try
             {
-                var response = users.Select(u => new UsersResponse(u.Id, u.Еmail!, u.Password!, u.Token!));
+                var response = users.Select(u => new UsersResponse(u.Id, u.Email!, u.Password!, u.Token!));
 
                 return Ok(response);
             }
@@ -45,16 +45,13 @@ namespace UserStore.API.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<List<UsersRequest>>> CreateUsers([FromBody] UsersRequest request)
         {
-            if (_userService.FindExistingUser(request.email))
-            {
-                return BadRequest("User already exists");
-            }
 
             var user = Core.Models.User.Create(
                 request.email,
-                request.password);
+                request.password
+            );
 
-            if(user.IsFailure)
+            if (user.IsFailure)
             {
                 return BadRequest(user.Error);
             }
@@ -67,13 +64,13 @@ namespace UserStore.API.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequestLogin request)
+        public ActionResult<List<UsersRequest>> LoginUsers([FromBody] UsersRequestLogin request)
         {
             var user = Core.Models.User.Create(
                 request.email,
                 request.password,
                 request.token
-                );
+            );
 
             if (user.IsFailure)
             {
@@ -81,20 +78,11 @@ namespace UserStore.API.Controllers
             }
 
             var loginResult = _userService.LoginUser(user.Value); 
-            Console.WriteLine(loginResult);
 
-            //if(!loginResult.Contains("-"))
             if(loginResult.IsFailure)
             {
-                Console.WriteLine("loginResult " + loginResult.Value);
-                Console.WriteLine("error error");
-                return BadRequest(loginResult.Value);
+                return BadRequest(loginResult.Error);
             }
-
-            Console.WriteLine("done done");
-            //Guid id = Guid.Parse(loginResult);
-
-            //var findUser = _userService.FindById(id);
 
             return Ok(loginResult.Value);
 

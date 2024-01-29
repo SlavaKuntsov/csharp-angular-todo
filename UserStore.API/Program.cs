@@ -3,7 +3,6 @@ using UserStore.Core.Abstractions;
 using UserStore.DataAccess;
 using UserStore.Application.Services;
 using UserStore.DataAccess.Repositories;
-using UserStore.Core.Models;
 
 namespace UserStore.API
 {
@@ -26,8 +25,8 @@ namespace UserStore.API
                 options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(UserStoreDbContext)));
             });
 
-            builder.Services.AddScoped<IUsersService, UsersService>();
-            builder.Services.AddScoped<IUserRepository, UserRepositiry>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             var app = builder.Build();
 
