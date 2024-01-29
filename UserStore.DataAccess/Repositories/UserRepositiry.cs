@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CSharpFunctionalExtensions;
+using Microsoft.EntityFrameworkCore;
 using System;
 using UserStore.Core.Abstractions;
 using UserStore.Core.Models;
@@ -6,7 +7,7 @@ using UserStore.DataAccess.Entities;
 
 namespace UserStore.DataAccess.Repositories
 {
-	public class UserRepositiry : IUserRepository
+    public class UserRepositiry : IUserRepository
 	{
 		private readonly UserStoreDbContext _context;
 		public UserRepositiry(UserStoreDbContext context)
@@ -17,11 +18,11 @@ namespace UserStore.DataAccess.Repositories
 		public async Task<List<User>> Get()
 		{
             var userEntities = await _context.Users
-			.AsNoTracking()
-			.ToListAsync();
+				.AsNoTracking()
+				.ToListAsync();
 
 			var users = userEntities
-				.Select(u => User.Create(u.Id, u.Email, u.Password, u.Token).User)
+				.Select(u => User.Create(u.Id, u.Email, u.Password, u.Token).Value)
 				.ToList();
 
 			return users;
@@ -47,59 +48,80 @@ namespace UserStore.DataAccess.Repositories
             return userEntity.Token;
         }
 
-		public string Login(User user)
+		public Result<Object> Login(User user)
 		{
-			string existingUserId = User.ExtractIdFromToken(user.Token);
+			//	3. этот login должен ли включать в себя token
+			// пока нет проверки по почте, будем считать что у сайта всегда есть токен
 
-			// как просиходит auth
-			// я присылаю токен при обнорвлении страницы, достается айди из него
-			// но здесь же еще и проверяется valid password 
 
-			// или разделить на два метода auth и Login 
-			// auth при обновлении страницы
-			// иначе login 
+			//	2. можно ли избавиться от этой проверки?
+			// проверка на: email, login, token
 
-			// куда внедрить access token
-			// является ли нынешний токен - refresh токеном
+			//	1. зачем проверять еще и id из токена если дальше есть проверка на valid token
 
-			// но как тогда проиходит первый login ведь там идет и email и password
-			// 
+			string existingUserId = User.ExtractIdFromToken(user.Token!);
 
-			if(existingUserId == null)
-			{
-				return "User not found";
-			}
+            if (existingUserId == null)
+            {
+				//return "User not found"; // or "Invalid token"
+				return Result.Failure<Object>("User not found");
+            }
+
+            // как просиходит auth
+            // я присылаю токен при обнорвлении страницы, достается айди из него
+            // но здесь же еще и проверяется valid password 
+
+            // или разделить на два метода auth и Login 
+            // auth при обновлении страницы
+            // иначе login 
+
+            // куда внедрить access token
+            // является ли нынешний токен - refresh токеном
+
+            // но как тогда проиходит первый login ведь там идет и email и password
+            // 
+
+
 
             var existingUser = _context.Users.SingleOrDefault(u => u.Id == Guid.Parse(existingUserId));
 
-            if (!BCrypt.Net.BCrypt.Verify(user.Password, existingUser.Password))
+            if (existingUser!.Email != user.Еmail)
+            {
+                //return "User not found";
+                return Result.Failure<Object>("User not found");
+            }
+
+            if (!BCrypt.Net.BCrypt.Verify(user.Password, existingUser!.Password))
 			{
-				Console.WriteLine("wrong password");
-				return "Wrong password";
-			}
+				//Console.WriteLine("wrong password");
+                //return "Wrong password";
+                return Result.Failure<Object>("Wrong password");
+            }
 
 			if (!UserStore.Core.Models.User.ValidateToken(user.Token!, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d"))
 			{
-				Console.WriteLine("wrong token");
-				return "Invalid token";
-			}
+				//Console.WriteLine("wrong token");
+                //return "Invalid token";
+                return Result.Failure<Object>("Invalid token");
+            }
 
 			Console.WriteLine("done");
 
-            string guidString = existingUser.Id.ToString();
+            //string guidString = existingUser.Id.ToString();
 
-            return guidString;
+            //return guidString;
+			return Result.Success(existingUser);
 		}
 
 		public Object FindById(Guid id)
 		{
-            Object existingUser = _context.Users.SingleOrDefault(u => u.Id == id);
+            var existingUser = _context.Users.SingleOrDefault(u => u.Id == id);
 			Console.WriteLine("-----find: " + existingUser);
 
 			return existingUser;
         }
 
-		public bool FindExistingUser(string email)
+		public bool FindExisting(string email)
 		{
             var existingUser = _context.Users.SingleOrDefault(u => u.Email == email);
 
