@@ -1,4 +1,5 @@
-﻿using UserStore.Core.Abstractions;
+﻿using CSharpFunctionalExtensions;
+using UserStore.Core.Abstractions;
 using UserStore.Core.Models;
 
 namespace UserStore.Application.Services
@@ -22,18 +23,18 @@ namespace UserStore.Application.Services
             return await _userRepository.Create(user);
         }
 
-        public string LoginUser(User user)
+        public Result<Object> LoginUser(User user)
         {
             return _userRepository.Login(user);
         }
 
-        public Object FindById(Guid id)
+        public User FindById(Guid id)
         {
-            return _userRepository.FindById(id);
+            return (User)_userRepository.FindById(id);
         }
         public bool FindExistingUser(string email)
         {
-            return _userRepository.FindExistingUser(email);
+            return _userRepository.FindExisting(email);
         }
 
         public async Task<Guid> UpdateUser(Guid id, string email, string password)

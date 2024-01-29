@@ -30,9 +30,16 @@ namespace UserStore.API.Controllers
 
             var users = await _userService.GetAllUsers();
 
-            var response = users.Select(u => new UsersResponse(u.Id, u.Еmail, u.Password, u.Token));
+            try
+            {
+                var response = users.Select(u => new UsersResponse(u.Id, u.Еmail!, u.Password!, u.Token!));
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]
@@ -43,7 +50,7 @@ namespace UserStore.API.Controllers
                 return BadRequest("User already exists");
             }
 
-            var user = UserStore.Core.Models.User.Create(
+            var user = Core.Models.User.Create(
                 request.email,
                 request.password);
 
@@ -63,6 +70,8 @@ namespace UserStore.API.Controllers
         public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequestLogin request)
         {
             var user = Core.Models.User.Create(
+                request.email,
+                request.password,
                 request.token
                 );
 
@@ -71,22 +80,23 @@ namespace UserStore.API.Controllers
                 return BadRequest(user.Error);
             }
 
-            string loginResult = _userService.LoginUser(user.Value); //repository
+            var loginResult = _userService.LoginUser(user.Value); 
             Console.WriteLine(loginResult);
 
-            if(!loginResult.Contains("-"))
+            //if(!loginResult.Contains("-"))
+            if(loginResult.IsFailure)
             {
-                Console.WriteLine("loginResult " + loginResult);
+                Console.WriteLine("loginResult " + loginResult.Value);
                 Console.WriteLine("error error");
-                return BadRequest(loginResult);
+                return BadRequest(loginResult.Value);
             }
 
             Console.WriteLine("done done");
-            Guid id = Guid.Parse(loginResult);
+            //Guid id = Guid.Parse(loginResult);
 
-            var findUser = _userService.FindById(id);
+            //var findUser = _userService.FindById(id);
 
-            return Ok(findUser);
+            return Ok(loginResult.Value);
 
         }
 
