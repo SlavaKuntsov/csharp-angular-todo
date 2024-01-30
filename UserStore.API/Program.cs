@@ -26,7 +26,13 @@ namespace UserStore.API
             });
 
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();     
+            
+            builder.Services.AddScoped<IGroupService, GroupService>();
+            builder.Services.AddScoped<IGroupRepository, GroupRepository>();            
+            
+            builder.Services.AddScoped<IItemService, ItemService>();
+            builder.Services.AddScoped<IItemRepository, ItemRepository>();
 
             var app = builder.Build();
 

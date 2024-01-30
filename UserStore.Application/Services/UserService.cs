@@ -1,8 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
-using Microsoft.EntityFrameworkCore;
 using UserStore.Core.Abstractions;
 using UserStore.Core.Models;
-using UserStore.DataAccess.Entities;
 
 namespace UserStore.Application.Services
 {
@@ -22,14 +20,15 @@ namespace UserStore.Application.Services
 
         public async Task<Result<string>> CreateUser(User user)
         {
-            var existingUser = FindExsitingUser(user.Email);
+            var existingUser = FindUnexsitingUser(user.Email);
+            // if user not found - it is success
 
             if (existingUser.IsFailure)
             {
-                return Result.Failure<string>("The user already exists");
+                return Result.Failure<string>(existingUser.Error);
             }
 
-            return await _userRepository.Create(existingUser.Value);
+            return await _userRepository.Create(user);
         }
 
         public Result<User> LoginUser(User user)
@@ -39,7 +38,7 @@ namespace UserStore.Application.Services
             // not found
             if (existingUser.IsFailure)
             {
-                return Result.Failure<User>(existingUser.Error);
+                return Result.Failure<User>("User not found");
             }
 
             if (!BCrypt.Net.BCrypt.Verify(user.Password, existingUser.Value.Password))
@@ -70,10 +69,25 @@ namespace UserStore.Application.Services
         private Result<User> FindExsitingUser(string email)
         {
             User existingUser = (User)_userRepository.FindExisting(email);
-
-            if (existingUser == null) return Result.Failure<User>("User not found");
+            
+            if (existingUser == null)
+            {
+                Console.WriteLine("user not found - create success");
+                return Result.Failure<User>("User not found");
+            }
 
             return Result.Success(existingUser);
+        }
+        private Result<string> FindUnexsitingUser(string email)
+        {
+            User existingUser = (User)_userRepository.FindExisting(email);
+
+            if (existingUser == null)
+            {
+                return Result.Success("User not found - success");
+            }
+
+            return Result.Failure<string>("User already exists - failed");
         }
         //private bool FindExisting(string email)
         //{

@@ -2,11 +2,13 @@
 {
     public record UsersRequest(
         string email,
-        string password);
+        string password
+    );
 
     public record UsersRequestLogin(
         string email,
         string password,
-        string token);
+        string token
+    );
 
 }

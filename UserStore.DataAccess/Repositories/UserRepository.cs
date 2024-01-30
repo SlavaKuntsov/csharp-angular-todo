@@ -29,7 +29,6 @@ namespace UserStore.DataAccess.Repositories
 
 		public async Task<string> Create(User user)
 		{
-
             Guid Id = Guid.NewGuid();
             var userEntity = new UserEntity
             {

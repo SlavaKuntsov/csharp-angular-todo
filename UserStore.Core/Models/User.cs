@@ -1,5 +1,4 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using CSharpFunctionalExtensions;
@@ -9,7 +8,6 @@ namespace UserStore.Core.Models
 {
     public class User
     {
-
         public Guid Id { get; }
         public string Email { get; }
         public string Password { get; } 

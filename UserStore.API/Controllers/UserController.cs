@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Text.Json;
 using UserStore.API.Contracts;
 using UserStore.Core.Abstractions;
-using UserStore.Core.Models;
 
 
 namespace UserStore.API.Controllers
@@ -15,11 +10,11 @@ namespace UserStore.API.Controllers
     [ApiController]
     [Route("[controller]")]
     [EnableCors()]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
 
-        public UsersController(IUserService userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
@@ -27,7 +22,6 @@ namespace UserStore.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<UsersResponse>>> GetUsers()
         {
-
             var users = await _userService.GetAllUsers();
 
             try
@@ -45,7 +39,6 @@ namespace UserStore.API.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult<List<UsersRequest>>> CreateUsers([FromBody] UsersRequest request)
         {
-
             var user = Core.Models.User.Create(
                 request.email,
                 request.password
@@ -58,7 +51,12 @@ namespace UserStore.API.Controllers
 
             var userToken = await _userService.CreateUser(user.Value);
 
-            string jsonUserToken = JsonSerializer.Serialize(userToken);
+            if (userToken.IsFailure)
+            {
+                return BadRequest(userToken.Error);
+            }
+
+            string jsonUserToken = JsonSerializer.Serialize(userToken.Value);
 
             return Ok(jsonUserToken);
         }
