@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UserStore.DataAccess.Entities
+﻿namespace UserStore.DataAccess.Entities
 {
     public class UserEntity
     {
@@ -12,5 +6,6 @@ namespace UserStore.DataAccess.Entities
         public string? Email { get; set; }
         public string? Password { get; set; }
         public string? Token { get; set; }
+        public List<GroupEntity> Groups { get; set; } = new List<GroupEntity>();
     }
 }

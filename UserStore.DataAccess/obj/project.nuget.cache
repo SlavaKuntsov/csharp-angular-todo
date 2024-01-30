@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "xSoElG+rhRXg3/zsJyNwNo8U6+QsVp8EorqRbyF7+irQySqZRJHY0Xc+ZHjoFjJZCW3VbaJUhE451RrdFGHIHg==",
+  "dgSpecHash": "nLXaEJ+5nGfcEuxxEYPvUcEzH4bqcHE1RyMcIG/IuP5gkqoKfDaCLZSdJex00BF9FAdKRU422mv535gapRcfnQ==",
   "success": true,
   "projectFilePath": "/Users/nikitapapko/pet/todo/angular-todo-backend/UserStore.DataAccess/UserStore.DataAccess.csproj",
   "expectedPackageFiles": [
     "/Users/nikitapapko/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/Users/nikitapapko/.nuget/packages/csharpfunctionalextensions/2.40.3/csharpfunctionalextensions.2.40.3.nupkg.sha512",
     "/Users/nikitapapko/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/nikitapapko/.nuget/packages/microsoft.entityframeworkcore/7.0.15/microsoft.entityframeworkcore.7.0.15.nupkg.sha512",
     "/Users/nikitapapko/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.15/microsoft.entityframeworkcore.abstractions.7.0.15.nupkg.sha512",

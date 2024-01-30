@@ -98,6 +98,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.40.3, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.2.0, )"

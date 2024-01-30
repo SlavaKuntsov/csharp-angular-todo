@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "CSharpFunctionalExtensions/2.40.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CSharpFunctionalExtensions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CSharpFunctionalExtensions.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Microsoft.IdentityModel.Abstractions/7.2.0": {
         "type": "package",
         "compile": {
@@ -83,6 +96,35 @@
     }
   },
   "libraries": {
+    "CSharpFunctionalExtensions/2.40.3": {
+      "sha512": "G+t+bf39aixVFN3O3Q5LoE0zy3o8QlV3mv3ATw76XwDRWkE9eFRLzZdx9HH9fgbPpasfP4kr8cnnXIP+Z7GcrQ==",
+      "type": "package",
+      "path": "csharpfunctionalextensions/2.40.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "csharpfunctionalextensions.2.40.3.nupkg.sha512",
+        "csharpfunctionalextensions.nuspec",
+        "lib/net40/CSharpFunctionalExtensions.dll",
+        "lib/net40/CSharpFunctionalExtensions.pdb",
+        "lib/net40/CSharpFunctionalExtensions.xml",
+        "lib/net45/CSharpFunctionalExtensions.dll",
+        "lib/net45/CSharpFunctionalExtensions.pdb",
+        "lib/net45/CSharpFunctionalExtensions.xml",
+        "lib/net461/CSharpFunctionalExtensions.dll",
+        "lib/net461/CSharpFunctionalExtensions.pdb",
+        "lib/net461/CSharpFunctionalExtensions.xml",
+        "lib/net5.0/CSharpFunctionalExtensions.dll",
+        "lib/net5.0/CSharpFunctionalExtensions.pdb",
+        "lib/net5.0/CSharpFunctionalExtensions.xml",
+        "lib/net6.0/CSharpFunctionalExtensions.dll",
+        "lib/net6.0/CSharpFunctionalExtensions.pdb",
+        "lib/net6.0/CSharpFunctionalExtensions.xml",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.dll",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.pdb",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.xml"
+      ]
+    },
     "Microsoft.IdentityModel.Abstractions/7.2.0": {
       "sha512": "7YgmrhCORuOP8miZJLdQhSEzyHdD5PfRjaqINbqSzS9LKEfOoHq8S9o4FVmK9Mu7Gts8MfL46sshwCk4AgjNyw==",
       "type": "package",
@@ -201,6 +243,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "CSharpFunctionalExtensions >= 2.40.3",
       "System.IdentityModel.Tokens.Jwt >= 7.2.0"
     ]
   },
@@ -241,6 +284,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "CSharpFunctionalExtensions": {
+            "target": "Package",
+            "version": "[2.40.3, )"
+          },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[7.2.0, )"

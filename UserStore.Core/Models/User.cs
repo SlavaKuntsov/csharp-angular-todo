@@ -2,128 +2,87 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using CSharpFunctionalExtensions;
 using Microsoft.IdentityModel.Tokens;
 
 namespace UserStore.Core.Models
 {
     public class User
     {
-        public Guid Id { get; }
-        public string? Еmail { get; }
-        public string? Password { get; }
-        public string? Token { get; }
 
+        public Guid Id { get; }
+        public string Email { get; }
+        public string Password { get; } 
+        public string Token { get; }
+        public List<Group> Groups { get; } = new List<Group>();
+
+        //private IReadOnlyCollection<TodoGroup> _userTodoGroups = new;
         private User(Guid id, string email, string password, string token)
         {
-            this.Id = id;
-            this.Еmail = email;
-            this.Password = password;
-            this.Token = token;
-            //if(string.IsNullOrEmpty(Token))
-            //{
-            //    Console.WriteLine($"old - {Token}");
-            //    this.Token = GenerateJwtToken(password, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
-            //    Console.WriteLine($"new - {Token}");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("token был ранее");
-            //}
+            Id = id;
+            Email = email;
+            Password = password;
+            Token = token;
         }
         private User(string token)
         {
-            this.Token = token;
+            Token = token;
         }
         private User(string email, string password)
         {
-            this.Еmail = email;
-            this.Password = password;
+            Email = email;
+            Password = password;
         }
         private User(string email, string password, string token)
         {
-            this.Еmail = email;
-            this.Password = password;
-            this.Token = token;
+            Email = email;
+            Password = password;
+            Token = token;
         }
-        // get user
-        public static (User User, string Error) Create(Guid id, string email, string password, string token)
-        {
-            var error = string.Empty;
 
+        // get user
+        public static Result<User> Create(Guid id, string email, string password, string token)
+        {
             if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                error = "Email or Password can not be empty";
+                return Result.Failure<User>("Email or Password can not be empty");
             }
 
-
             User user = new(id, email, password, token);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
-            return (user, error);
+            return Result.Success(user);
         }
         // create
-        public static (User User, string Error) Create(string email, string password)
+        public static Result<User> Create(string email, string password)
         {
-            var error = string.Empty;
-
             if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                error = "Email or Password can not be empty";
+                return Result.Failure<User>("Email or Password can not be empty");
             }
 
             User user = new(email, password);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
-            return (user, error);
+            return Result.Success(user);
         }
         // login
-        public static (User User, string Error) Create(string email, string password, string token)
+        public static Result<User> Create(string email, string password, string token)
         {
-            var error = string.Empty;
-
-            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                error = "Email or Password can not be empty";
+                return Result.Failure<User>("Email or Password can not be empty");
             }
-            //if (!ValidateToken(token, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d"))
-            //{
-            //    error = "Invalid token";
-            //}
 
             User user = new(email, password, token);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
-            return (user, error);
+            return Result.Success(user);
         }
         // login 2
-        public static (User User, string Error) Create(string token)
+        public static Result<User> Create(string token)
         {
-            var error = string.Empty;
-
-            //if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            //{
-            //    error = "Email or Password can not be empty";
-            //}
-            //if (!ValidateToken(token, "9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d"))
-            //{
-            //    error = "Invalid token";
-            //}
-
             User user = new(token);
-            //user.GenerateToken("9f6a1d7e5b3c8a4d9f6a1d7e5b3c8a4d");
 
-            return (user, error);
+            return Result.Success(user);
         }
-        //private static string? GetUserTokenFromDatabase(Guid userId)
-        //{
-        //    // Здесь вы должны получить токен пользователя из вашей базы данных или другого хранилища
-        //    // Верните токен, если он существует, или null, если токен не найден
-        //    // Пример:
-        //    return _context.Users.SingleOrDefault(u => u.Id == userId)?.Token;
-        //    //return null;
-        //}
-
-
         public static string GenerateToken(Guid id, string secretKey)
         {
             Console.WriteLine("id for token " + id);
@@ -187,7 +146,8 @@ namespace UserStore.Core.Models
             {
                 return null;
             }
-
         }
+
+
     }
 }
