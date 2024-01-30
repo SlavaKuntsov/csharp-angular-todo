@@ -3,7 +3,10 @@
     public record UsersRequest(
         string email,
         string password);
-    
-    public record UsersRequestLogin(string token);
+
+    public record UsersRequestLogin(
+        string email,
+        string password,
+        string token);
 
 }

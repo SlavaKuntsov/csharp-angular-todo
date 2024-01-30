@@ -18,15 +18,26 @@ namespace UserStore.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+
             builder.Services.AddDbContext<UserStoreDbContext>(options =>
             {
                 options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(UserStoreDbContext)));
             });
 
-            builder.Services.AddScoped<IUsersService, UsersService>();
-            builder.Services.AddScoped<IUserRepository, UserRepositiry>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             var app = builder.Build();
+
+            app.UseCors(builder =>
+            {
+                builder
+                       .AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+                //.WithOrigins("http://localhost:4200", "https://angular-todo-backend.onrender.com", "https://angular-todo-wine.vercel.app")
+            });
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -36,15 +47,6 @@ namespace UserStore.API
             }
 
             app.UseHttpsRedirection();
-
-            app.UseCors(builder =>
-            {
-                builder
-                       .AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
-                       //.WithOrigins("http://localhost:4200", "https://angular-todo-backend.onrender.com", "https://angular-todo-wine.vercel.app")
-            });
 
             app.UseAuthorization();
 

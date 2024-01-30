@@ -17,9 +17,9 @@ namespace UserStore.API.Controllers
     [EnableCors()]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersService _userService;
+        private readonly IUserService _userService;
 
-        public UsersController(IUsersService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
@@ -30,29 +30,33 @@ namespace UserStore.API.Controllers
 
             var users = await _userService.GetAllUsers();
 
-            var response = users.Select(u => new UsersResponse(u.Id, u.Еmail, u.Password, u.Token));
+            try
+            {
+                var response = users.Select(u => new UsersResponse(u.Id, u.Email!, u.Password!, u.Token!));
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("Create")]
         public async Task<ActionResult<List<UsersRequest>>> CreateUsers([FromBody] UsersRequest request)
         {
-            if (_userService.FindExistingUser(request.email))
-            {
-                return BadRequest("User already exists");
-            }
 
-            var (user, error) = UserStore.Core.Models.User.Create(
+            var user = Core.Models.User.Create(
                 request.email,
-                request.password);
+                request.password
+            );
 
-            if(!string.IsNullOrEmpty(error))
+            if (user.IsFailure)
             {
-                return BadRequest(error);
+                return BadRequest(user.Error);
             }
 
-            var userToken = await _userService.CreateUser(user);
+            var userToken = await _userService.CreateUser(user.Value);
 
             string jsonUserToken = JsonSerializer.Serialize(userToken);
 
@@ -60,33 +64,27 @@ namespace UserStore.API.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<List<UsersRequest>>> LoginUsers([FromBody] UsersRequestLogin request)
+        public ActionResult<List<UsersRequest>> LoginUsers([FromBody] UsersRequestLogin request)
         {
-            var (user, error) = UserStore.Core.Models.User.Create(
+            var user = Core.Models.User.Create(
+                request.email,
+                request.password,
                 request.token
-                );
+            );
 
-            if (!string.IsNullOrEmpty(error))
+            if (user.IsFailure)
             {
-                return BadRequest(error);
+                return BadRequest(user.Error);
             }
 
-            string loginResult = _userService.LoginUser(user); //repository
-            Console.WriteLine(loginResult);
+            var loginResult = _userService.LoginUser(user.Value); 
 
-            if(!loginResult.Contains("-"))
+            if(loginResult.IsFailure)
             {
-                Console.WriteLine("loginResult " + loginResult);
-                Console.WriteLine("error error");
-                return BadRequest(loginResult);
+                return BadRequest(loginResult.Error);
             }
 
-            Console.WriteLine("done done");
-            Guid id = Guid.Parse(loginResult);
-
-            var findUser = _userService.FindById(id);
-
-            return Ok(findUser);
+            return Ok(loginResult.Value);
 
         }
 
